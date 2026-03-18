@@ -37,21 +37,32 @@ def gauss_elimination(a, b):
     return x
 
 
-# --- Input section ---
-N = int(input("Enter the size of the matrix (N): "))
+# --- Input selection ---
+choice = input("Do you want to input the matrix manually? (Y/n): ").strip().lower()
 
-A = []
-print("Enter the elements of matrix A row by row:")
-for i in range(N):
-    row = list(map(float, input(f"Row {i + 1}: ").split()))
-    if len(row) != N:
-        raise ValueError("Each row must have exactly N elements.")
-    A.append(row)
+if choice == "y":
+    N = int(input("Enter the size of the matrix (N): "))
 
-print("Enter the elements of vector b:")
-b = list(map(float, input().split()))
-if len(b) != N:
-    raise ValueError("Vector b must have exactly N elements.")
+    A = []
+    print("Enter the elements of matrix A row by row:")
+    for i in range(N):
+        row = list(map(float, input(f"Row {i + 1}: ").split()))
+        if len(row) != N:
+            raise ValueError("Each row must have exactly N elements.")
+        A.append(row)
+
+    print("Enter the elements of vector b:")
+    b = list(map(float, input().split()))
+    if len(b) != N:
+        raise ValueError("Vector b must have exactly N elements.")
+
+else:
+    # Example system
+    A = [[6, -2, 2, 4], [12, -8, 6, 10], [3, -13, 9, 3], [-6, 4, 1, -18]]
+    b = [16, 26, -19, -34]
+    print("Using example system:")
+    print("A =", A)
+    print("b =", b)
 
 # Solve
 solution = gauss_elimination(A, b)
