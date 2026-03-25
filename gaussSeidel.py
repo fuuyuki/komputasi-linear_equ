@@ -41,8 +41,8 @@ if choice == "y":
 
 else:
     # Example system
-    A = [[2, -2, 2], [4, 2, -1], [2, -2, 4]]
-    b = [0, 7, 2]
+    A = [[10, 2, -1], [-3, -6, 2], [1, 1, 5]]
+    b = [27, -61.5, -21.5]
     print("Using example system:")
     print("A =", A)
     print("b =", b)
